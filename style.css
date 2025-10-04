@@ -64,11 +64,23 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(10px);
+    background-color: transparent;
+    backdrop-filter: none;
     z-index: 1000;
     padding: 0 50px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+header.scrolled {
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+header.hidden {
+    transform: translateY(-100%);
 }
 
 nav {
