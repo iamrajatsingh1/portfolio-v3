@@ -1,6 +1,33 @@
 // Tab switching
 const tabButtons = document.querySelectorAll('.tab-button');
 const jobPanels = document.querySelectorAll('.job-panel');
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links a');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+  document.body.classList.toggle('menu-open');
+});
+
+// Close menu when clicking a link
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+});
 
 tabButtons.forEach(button => {
     button.addEventListener('click', () => {
